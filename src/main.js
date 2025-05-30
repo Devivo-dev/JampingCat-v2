@@ -1,4 +1,4 @@
-import '@scss/main.scss';
+import './scss/main.scss';
 import { initGame } from './scripts/game/game.js';
 initGame();
 document.addEventListener('gesturestart', function (e) {
