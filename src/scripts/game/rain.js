@@ -79,7 +79,7 @@ export function handleLifeLoss() {
   }
 
   if (state.lives === 0) {
-    document.querySelector(".modal--game-over").classList.remove("hidden");
+   onGameOver(); document.querySelector(".modal--game-over").classList.remove("hidden");
     document.querySelector(".control__button--left").classList.add("disabled");
     document.querySelector(".control__button--right").classList.add("disabled");
     state.running = false;
