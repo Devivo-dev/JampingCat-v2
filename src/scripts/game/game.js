@@ -2,13 +2,7 @@ import { setupEventListeners } from './input.js';
 import { startCountdown } from './ui.js';
 import { spawnCoin } from './coin.js';
 import { updateGame } from './engine.js';
-
-const coinsCollected = 25 // або змінна, яка підраховує
-localStorage.setItem('coins_collected', coinsCollected.toString())
-
-// Оновлення у базі
 import { updateWhiskas } from './whiskas.js'
-updateWhiskas('test-player-001', coinsCollected)
 
 export function initGame() {
   spawnCoin();
@@ -26,3 +20,10 @@ preloadImages.forEach(src => {
   const img = new Image();
   img.src = src;
 });
+
+//ОЦЯ ФУНКЦІЯ має викликатись після завершення гри
+function onGameOver() {
+  const coinsCollected = scoreAmount; // або твоя реальна змінна
+  localStorage.setItem('coins_collected', coinsCollected.toString());
+  updateWhiskas('test-player-001', coinsCollected);
+}
