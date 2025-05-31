@@ -6,6 +6,16 @@ export function setupEventListeners() {
     .addEventListener("click", moveLeft);
   document.querySelector(".control__button--right")
     .addEventListener("click", moveRight);
-  document.querySelector(".modal__retry")
-    .addEventListener("click", resetGame);
+  const retryBtn = document.querySelector('.modal__retry');
+
+  retryBtn.addEventListener('click', () => {
+    retryBtn.classList.add('active');
+
+    setTimeout(() => {
+      retryBtn.classList.remove('active');
+    }, 150);
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+});
 }
