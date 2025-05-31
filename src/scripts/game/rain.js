@@ -1,4 +1,5 @@
-import { state, scoreAmount} from './state.js';
+import { state } from './state.js';
+import { scoreAmount } from './state.js';
 import { onGameOver } from './onGameOver.js';
 
 export function spawnRaindrop() {
