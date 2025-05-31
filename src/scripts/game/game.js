@@ -20,10 +20,3 @@ preloadImages.forEach(src => {
   const img = new Image();
   img.src = src;
 });
-
-//ОЦЯ ФУНКЦІЯ має викликатись після завершення гри
-function onGameOver() {
-  const coinsCollected = scoreAmount; // або твоя реальна змінна
-  localStorage.setItem('coins_collected', coinsCollected.toString());
-  updateWhiskas('test-player-001', coinsCollected);
-}
