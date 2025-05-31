@@ -1,5 +1,5 @@
 import { state } from './state.js';
-import { onGameOver } from './game.js';
+import { onGameOver } from './onGameOver.js';
 
 export function spawnRaindrop() {
   const cloud = document.querySelector(".game__cloud");
@@ -80,7 +80,7 @@ export function handleLifeLoss() {
   }
 
   if (state.lives === 0) {
-   onGameOver(); document.querySelector(".modal--game-over").classList.remove("hidden");
+   onGameOver(scoreAmount); document.querySelector(".modal--game-over").classList.remove("hidden");
     document.querySelector(".control__button--left").classList.add("disabled");
     document.querySelector(".control__button--right").classList.add("disabled");
     state.running = false;
