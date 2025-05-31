@@ -1,7 +1,8 @@
 import './scss/main.scss';
 import { getWhiskas } from './whiskas.js';
-import { initGame } from './scripts/game/game.js';
-initGame();
+if (window.location.pathname.includes('game.html')) {
+  initGame();
+}
 document.addEventListener('gesturestart', function (e) {
   e.preventDefault();
 });
