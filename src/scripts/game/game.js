@@ -2,7 +2,7 @@ import { setupEventListeners } from './input.js';
 import { startCountdown } from './ui.js';
 import { spawnCoin } from './coin.js';
 import { updateGame } from './engine.js';
-import { updateWhiskas } from './whiskas.js';
+import { updateWhiskas } from '../../whiskas.js';
 import { onGameOver } from './onGameOver.js';
 
 export function initGame() {
@@ -20,4 +20,14 @@ const preloadImages = [
 preloadImages.forEach(src => {
   const img = new Image();
   img.src = src;
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const backBtn = document.getElementById('back-to-menu');
+  if (backBtn) {
+    backBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await onGameOver(); // зберігаємо монети
+      window.location.href = './index.html'; // переходимо назад
+    });
+  }
 });

@@ -25,13 +25,27 @@ export function moveRight() {
   document.querySelector(".game__player").style.transform = "scaleX(1)";
 }
 
-const retryBtn = document.querySelector(".modal__retry");
-retryBtn.addEventListener("click", () => {
-  retryBtn.classList.add("active");
+// const retryBtn = document.querySelector('.retry-btn');
+// retryBtn.addEventListener("click", () => {
+//   retryBtn.classList.add("active");
 
-  setTimeout(() => {
-    retryBtn.classList.remove("active");
-    document.querySelector(".modal").classList.add("hidden");
-    location.reload();
-  }, 250);
+//   setTimeout(() => {
+//     retryBtn.classList.remove("active");
+//     document.querySelector(".modal").classList.add("hidden");
+//     location.reload();
+//   }, 250);
+// });
+window.addEventListener('DOMContentLoaded', () => {
+    const retryBtn = document.querySelector('.retry-btn');
+  if (retryBtn) {
+    retryBtn.addEventListener("click", () => {
+      retryBtn.classList.add("active");
+
+      setTimeout(() => {
+        retryBtn.classList.remove("active");
+        document.querySelector(".modal").classList.add("hidden");
+        location.reload();
+      }, 250);
+    });
+  }
 });

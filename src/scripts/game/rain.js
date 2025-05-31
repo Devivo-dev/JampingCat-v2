@@ -1,17 +1,20 @@
 import { state } from './state.js';
-import { scoreAmount } from './state.js';
 import { onGameOver } from './onGameOver.js';
 
 export function spawnRaindrop() {
   const cloud = document.querySelector(".game__cloud");
   const gameWindow = document.querySelector(".game__window");
   const player = document.querySelector(".game__player");
-  const fallSpeed = state.fallSpeed;
+
+  if (!cloud || !gameWindow || !player) {
+    console.warn('⛔️ Не знайдені елементи для spawnRaindrop');
+    return;
+  }
 
   const drop = document.createElement('div');
   drop.classList.add('drop');
 
-  drop.style.setProperty('--fallSpeed', `${fallSpeed}s`);
+  drop.style.setProperty('--fallSpeed', `${state.fallSpeed}s`);
 
   const cloudRect = cloud.getBoundingClientRect();
   const gameRect = gameWindow.getBoundingClientRect();
@@ -49,20 +52,23 @@ export function spawnRaindrop() {
   setTimeout(() => {
     drop.remove();
     cancelAnimationFrame(frameId);
-  }, fallSpeed * 1000);
+  }, state.fallSpeed * 1000);
 }
+
 setInterval(() => {
-  if (fallSpeed > 0.5) fallSpeed -= 0.1;
+  if (state.fallSpeed > 0.5) state.fallSpeed -= 0.1;
 }, 10000);
-let rainInterval = 2000;// старт: 2 сек
+
+let rainInterval = 2000;
 let rainTimer; 
 let difficultyIncrease = setInterval(() => {
   if (rainInterval > 500) {
-    rainInterval -= 200; // кожні 10 сек −200мс
+    rainInterval -= 200;
     clearInterval(rainTimer);
     rainTimer = setInterval(spawnRaindrop, rainInterval);
   }
-}, 10000); // кожні 10 секунд
+}, 10000);
+
 setTimeout(() => {
   rainTimer = setInterval(spawnRaindrop, rainInterval);
 }, 2000);
@@ -81,7 +87,8 @@ export function handleLifeLoss() {
   }
 
   if (state.lives === 0) {
-   onGameOver(scoreAmount); document.querySelector(".modal--game-over").classList.remove("hidden");
+    onGameOver(state.score); // scoreAmount = state.score
+    document.querySelector(".modal--game-over").classList.remove("hidden");
     document.querySelector(".control__button--left").classList.add("disabled");
     document.querySelector(".control__button--right").classList.add("disabled");
     state.running = false;
