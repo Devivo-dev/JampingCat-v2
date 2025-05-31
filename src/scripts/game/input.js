@@ -6,6 +6,6 @@ export function setupEventListeners() {
     .addEventListener("click", moveLeft);
   document.querySelector(".control__button--right")
     .addEventListener("click", moveRight);
-  // document.querySelector(".modal__retry")
-  //   .addEventListener("click", resetGame);
+  document.querySelector(".modal__retry")
+    .addEventListener("click", resetGame);
 }
