@@ -1,4 +1,5 @@
 import { state } from './state.js';
+import { onGameOver } from './game.js';
 
 export function spawnRaindrop() {
   const cloud = document.querySelector(".game__cloud");
