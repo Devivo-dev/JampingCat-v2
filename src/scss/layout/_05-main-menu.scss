@@ -28,6 +28,12 @@
     padding-top: 10vh;
     color: getColor('col-b');
     text-shadow: 2px 2px 0 getColor('col-w');
+
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url("../../assets/img/whiskas.png") no-repeat center/cover;
+    image-rendering: pixelated;
     }
 }
 .choose__box{
