@@ -29,15 +29,26 @@
     color: getColor('col-b');
     text-shadow: 2px 2px 0 getColor('col-w');
 
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background: url("../../assets/img/whiskas.png") no-repeat center/cover;
-    image-rendering: pixelated;
+
     }
 }
 .choose__box{
   background-color: getColor('col-w');
   padding: 10px;
   margin: 10px auto;
+}
+.whiskas-amount{
+    position: relative;
+}
+.whiskas-amount::after{
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url("../../assets/img/whiskas.png") no-repeat center/cover;
+    image-rendering: pixelated;
+    position: absolute;
+    top: -25%;
+    left: 150%;
+    
 }

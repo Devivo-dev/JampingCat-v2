@@ -2,12 +2,19 @@ import { state } from './state.js';
 import { onGameOver } from './onGameOver.js';
 
 export function spawnRaindrop() {
+
+  if (!state.running) return;
+
   const cloud = document.querySelector(".game__cloud");
   const gameWindow = document.querySelector(".game__window");
   const player = document.querySelector(".game__player");
 
   if (!cloud || !gameWindow || !player) {
     console.warn('⛔️ Не знайдені елементи для spawnRaindrop');
+    
+    clearInterval(rainTimer);
+    clearInterval(difficultyIncrease);
+    
     return;
   }
 
@@ -87,6 +94,7 @@ export function handleLifeLoss() {
   }
 
   if (state.lives === 0) {
+    
     onGameOver(state.score); // scoreAmount = state.score
     document.querySelector(".modal--game-over").classList.remove("hidden");
     document.querySelector(".control__button--left").classList.add("disabled");
