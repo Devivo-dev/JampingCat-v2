@@ -1,11 +1,17 @@
 import { supabase } from './supabase.js';
 
-// ✅ Отримуємо повного користувача
+// ✅ Отримуємо Telegram ID + username
 function getCurrentUser() {
-  const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+  if (typeof window !== 'undefined') {
+    const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+    return {
+      tg_id: user?.id?.toString() || 'guest-' + Date.now(),
+      username: user?.username || user?.first_name || 'Anonymous'
+    };
+  }
   return {
-    tg_id: user?.id?.toString() || 'guest-' + Date.now(),
-    username: user?.username || 'Anonymous',
+    tg_id: 'guest-' + Date.now(),
+    username: 'Anonymous'
   };
 }
 
