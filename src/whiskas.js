@@ -1,30 +1,23 @@
 import { supabase } from './supabase.js';
 
-// Отримуємо Telegram ID
-function getCurrentTgId() {
-  if (typeof window !== 'undefined' && window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
-    return window.Telegram.WebApp.initDataUnsafe.user.id.toString();
-  }
-  return 'guest-' + Date.now(); // fallback
-}
-
-// Отримуємо Telegram username
-function getCurrentUsername() {
-  if (typeof window !== 'undefined' && window.Telegram?.WebApp?.initDataUnsafe?.user?.username) {
-    return window.Telegram.WebApp.initDataUnsafe.user.username;
-  }
-  return 'Anonymous';
+// ✅ Отримуємо повного користувача
+function getCurrentUser() {
+  const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+  return {
+    tg_id: user?.id?.toString() || 'guest-' + Date.now(),
+    username: user?.username || 'Anonymous',
+  };
 }
 
 // ✅ Зчитуємо або створюємо гравця
-export async function getWhiskas(tg_id = getCurrentTgId()) {
-  const username = getCurrentUsername();
+export async function getWhiskas() {
+  const { tg_id, username } = getCurrentUser();
 
   // 🟢 Завжди оновлюємо або створюємо користувача
-  await supabase.from('players').upsert({
-    tg_id,
-    username,
-  }, { onConflict: ['tg_id'] });
+  await supabase.from('players').upsert(
+    { tg_id, username },
+    { onConflict: ['tg_id'] }
+  );
 
   const { data, error } = await supabase
     .from('players')
@@ -42,8 +35,8 @@ export async function getWhiskas(tg_id = getCurrentTgId()) {
 
 // ✅ Додаємо whiskas після гри
 export async function updateWhiskas(addAmount) {
-  const tg_id = getCurrentTgId();
-  const current = await getWhiskas(tg_id);
+  const { tg_id } = getCurrentUser();
+  const current = await getWhiskas(); // викликає всередині getCurrentUser
   const newTotal = current + addAmount;
 
   await supabase
