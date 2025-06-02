@@ -5,11 +5,13 @@ import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig({
   root: 'src',
+  base: './',
   build: {
     rollupOptions: {
       input: glob.sync('./src/*.html'),
     },
-    outDir: '../dist',
+    outDir: 'dist', // 🟢 Без ../ — Vite і Netlify краще це розуміють
+    emptyOutDir: true, // 🧹 очищення перед білдом
   },
-  plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+  plugins: [injectHTML(), FullReload(['./src/**/*.html'])],
 });

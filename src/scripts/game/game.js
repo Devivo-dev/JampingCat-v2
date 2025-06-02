@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (backBtn) {
     backBtn.addEventListener('click', async (e) => {
       e.preventDefault();
+      backBtn.classList.add('active');
+       await new Promise(resolve => setTimeout(resolve, 300));
       await onGameOver(); // зберігаємо монети
       window.location.href = './index.html'; // переходимо назад
     });
