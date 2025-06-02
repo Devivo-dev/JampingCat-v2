@@ -1,14 +1,18 @@
 import { supabase } from './supabase.js';
 
-// ✅ Отримуємо Telegram ID + username
+// ✅ Telegram ID + username
 function getCurrentUser() {
   if (typeof window !== 'undefined') {
     const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
-    return {
-      tg_id: user?.id?.toString() || 'guest-' + Date.now(),
-      username: user?.username || user?.first_name || 'Anonymous'
-    };
+
+    if (user && user.id) {
+      return {
+        tg_id: user.id.toString(),
+        username: user.username?.trim() || user.first_name?.trim() || 'Anonymous'
+      };
+    }
   }
+
   return {
     tg_id: 'guest-' + Date.now(),
     username: 'Anonymous'
@@ -19,12 +23,21 @@ function getCurrentUser() {
 export async function getWhiskas() {
   const { tg_id, username } = getCurrentUser();
 
-  // 🟢 Завжди оновлюємо або створюємо користувача
-  await supabase.from('players').upsert(
+  // 🟢 Додаємо console.log для дебагу
+  console.log('👤 getWhiskas()', { tg_id, username });
+
+  // 🔁 Створюємо або оновлюємо username
+  const { error: upsertError } = await supabase.from('players').upsert(
     { tg_id, username },
     { onConflict: ['tg_id'] }
   );
 
+  if (upsertError) {
+    console.warn('❌ Помилка при upsert:', upsertError);
+    return 0;
+  }
+
+  // 🔄 Отримуємо whiskas
   const { data, error } = await supabase
     .from('players')
     .select('whiskas')
@@ -42,14 +55,19 @@ export async function getWhiskas() {
 // ✅ Додаємо whiskas після гри
 export async function updateWhiskas(addAmount) {
   const { tg_id } = getCurrentUser();
-  const current = await getWhiskas(); // викликає всередині getCurrentUser
+  const current = await getWhiskas(); // всередині теж getCurrentUser()
   const newTotal = current + addAmount;
 
-  await supabase
+  const { error } = await supabase
     .from('players')
     .update({ whiskas: newTotal })
     .eq('tg_id', tg_id);
 
-  console.log('🟢 updateWhiskas()', tg_id, addAmount);
+  if (error) {
+    console.warn('❌ Помилка при updateWhiskas():', error);
+  } else {
+    console.log('🟢 updateWhiskas()', tg_id, addAmount);
+  }
+
   return newTotal;
 }
