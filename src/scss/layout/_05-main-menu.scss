@@ -13,9 +13,31 @@
 .link-info{
   margin: 0 auto;
 
+  position: relative;
+
   width: 100px;  
   height: 81px;
   background: url("../../assets/img/light-bulb.png") no-repeat center;
+  background-size: contain;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+.link-shop{
+  margin: 0 auto;
+  position: relative;
+  width: 100px;  
+  height: 81px;
+  background: url("../../assets/img/shop.png") no-repeat center;
+  background-size: contain;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+.link-home{
+  margin: 0 auto;
+  position: relative;
+  width: 100px;  
+  height: 81px;
+  background: url("../../assets/img/home.png") no-repeat center;
   background-size: contain;
   image-rendering: pixelated;
   z-index: 2;
@@ -111,7 +133,25 @@
 .play{
   position: absolute;
   top: 100%;
-  left: 13%;
+  left: 10%;
+  font-size: 2rem;
+}
+.shop{
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  font-size: 2rem;
+}
+.info{
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  font-size: 2rem;
+}
+.home{
+  position: absolute;
+  top: 100%;
+  left: 10%;
   font-size: 2rem;
 }
 .whiskas__collected{
@@ -120,4 +160,11 @@
     color: getColor('col-b');
     text-shadow: 2px 2px 0 getColor('col-w');
     font-size: 2rem;
+}
+.shop__title{
+  text-align: center;
+  font-size: 3rem;
+}
+.shop__choose--box{
+  display: flex;
 }
