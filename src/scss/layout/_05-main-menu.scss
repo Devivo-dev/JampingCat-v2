@@ -1,56 +1,43 @@
 .link-button{
-  margin: 0 auto;
-
-  width: 100px;  
-  height: 81px;
   background: url("../../assets/img/joystick.png") no-repeat center;
-  background-size: contain;
-  image-rendering: pixelated;
-  z-index: 2;
-
-  position: relative;
 }
 .link-info{
-  margin: 0 auto;
-
-  position: relative;
-
-  width: 100px;  
-  height: 81px;
   background: url("../../assets/img/light-bulb.png") no-repeat center;
-  background-size: contain;
-  image-rendering: pixelated;
-  z-index: 2;
+
 }
 .link-shop{
-  margin: 0 auto;
-  position: relative;
-  width: 100px;  
-  height: 81px;
   background: url("../../assets/img/shop.png") no-repeat center;
-  background-size: contain;
-  image-rendering: pixelated;
-  z-index: 2;
 }
 .link-home{
-  margin: 0 auto;
-  position: relative;
-  width: 100px;  
-  height: 81px;
   background: url("../../assets/img/home.png") no-repeat center;
+}
+.link-button,
+.link-home,
+.link-info,
+.link-home,
+.link-shop{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: clamp(60px, 15vw, 100px);
+  aspect-ratio: 100 / 81;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   image-rendering: pixelated;
+  position: relative;
+
   z-index: 2;
 }
 .link-button-menu{
-  width: 128px;  
-  height: 51px;
+  width: clamp(80px, 20vw, 128px);
+  aspect-ratio: 128 / 51;
   background: url("../../assets/img/btn-back.png") no-repeat center;
   background-size: contain;
   image-rendering: pixelated;
   &.active {
-    width: 128px;  
-    height: 51px;
     background: url("../../assets/img/btn-back-active.png") no-repeat center;
     background-size: contain; 
     image-rendering: pixelated;
@@ -83,8 +70,10 @@
 }
 .choose__box{
   display: flex;
+  justify-content: space-around;
   position: relative;
-
+  gap: clamp(1rem, 5vw, 3rem);
+  padding: 0;
   &::after{
     content: '';
     display: block;
@@ -102,20 +91,33 @@
     z-index: 1;
   }
 }
-.whiskas-amount{
-    position: relative;
-}
-.whiskas-amount::after{
-    content: '';
-    display: block;
-    width: 32px;
-    height: 32px;
-    background: url("../../assets/img/whiskas.png") no-repeat center/cover;
+.whiskas__collected {
+  text-align: center;
+  padding: 1% 0 2%;
+  color: getColor('col-b');
+  text-shadow: 2px 2px 0 getColor('col-w');
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+
+  &--wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  &--amount {
+    font-size: 1em;
+    font-weight: 500;
+  }
+
+  &--coin {
+    width: 1.5em;
+    aspect-ratio: 1 / 1;
+    background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
     image-rendering: pixelated;
-    position: absolute;
-    top: 10%;
-    left: 150%;
+  }
 }
+
 .playercat{
   display: block;
   width: 100%;
@@ -130,41 +132,10 @@
   transform: translateX(-50%);
   z-index: 3;
 }
-.play{
-  position: absolute;
-  top: 100%;
-  left: 10%;
-  font-size: 2rem;
-}
-.shop{
-  position: absolute;
-  top: 100%;
-  left: 10%;
-  font-size: 2rem;
-}
-.info{
-  position: absolute;
-  top: 100%;
-  left: 15%;
-  font-size: 2rem;
-}
-.home{
-  position: absolute;
-  top: 100%;
-  left: 10%;
-  font-size: 2rem;
-}
-.whiskas__collected{
-    text-align: center;
-    padding-top: 5vh;
-    color: getColor('col-b');
-    text-shadow: 2px 2px 0 getColor('col-w');
-    font-size: 2rem;
-}
-.shop__title{
+.link-text{
+
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: getColor('col-w');
+  text-shadow: 1px 1px 0 getColor('col-b');
   text-align: center;
-  font-size: 3rem;
-}
-.shop__choose--box{
-  display: flex;
 }

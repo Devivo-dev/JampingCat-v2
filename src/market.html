@@ -12,33 +12,28 @@
 	<title>Jumping Cat</title>
 </head>
 <body>
-	<header>
-		<div class="container">
-			<p class='shop__title'>SHOP</p>
-		</div>
-	</header>
-	<main>
-		<div class="container">
-			<div class="main__window">
-				<h2 class='whiskas__collected'> 
-					<span class='whiskas-amount' id="whiskas-amount">0</span>
-				</h2>
-				<div class="playercat"></div>
-				
+	<div class="game-frame">
+		<main>
+			<div class="shop__window">
+					<div class="shop__borderShop">
+						<div class='shop__borderShop--coin'></div>
+						<span class='whiskas__collected--amount shop__borderShop--amount' id="whiskas-amount">0</span>
+					</div>
 			</div>
+			<div class="shop__playercat"></div>
 			<div class="shop__choose--box">
-				<div class="link-button" onclick="window.location.href='./game.html'">
-					<span class='play'>PLAY</span>
-				</div>
-				<div class="link-home" onclick="window.location.href='./'">
-					<span class='home'>HOME</span>
-				</div>
-				<div class="link-info" onclick="window.location.href='./'">
-					<span class='info'>INFO</span>
-				</div>
+						<div class="link-button" onclick="window.location.href='./game.html'">
+								<!-- <span class='link-text'>PLAY</span> -->
+						</div>
+						<div class="link-home" onclick="window.location.href='./'">
+							<!-- <span class='link-text'>HOME</span> -->
+						</div>
+						<div class="link-info" onclick="window.location.href='./'">
+							<!-- <span class='link-text'>INFO</span> -->
+						</div>
 			</div>
-		</div>
-	</main>
+		</main>
+	</div>
 	<!-- <footer>
 		<div class="container">
 		</div>
