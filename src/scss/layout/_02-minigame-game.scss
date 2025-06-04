@@ -22,7 +22,7 @@
 		position: absolute;
 		top: 1vh;
 		left: 0;
-		width: clamp(100px, 40vw, 320px);
+		width: clamp(100px, 60vw, 320px);
 		aspect-ratio: 2 / 1;
 
 		background: url("../../assets/img/cloudBordered.png") no-repeat center/contain;
@@ -33,15 +33,15 @@
 
 		animation: cloudMove 14s ease-in-out infinite;
 	}
-	&__player{
-		background: url("../../assets/skins/simplePlayer.png") no-repeat center/cover;
-		image-rendering: pixelated;
-		position: absolute;
-		width: 67px;
-		height: 60px;
-		transition: transform 0.3 ease ;
-	}
-	
+&__player {
+  background: url("../../assets/skins/simplePlayer.png") no-repeat center/contain;
+  image-rendering: pixelated;
+  position: absolute;
+
+  width: clamp(70px, 15vw, 100px);      
+  aspect-ratio: 67 / 60;             
+  height: auto;                       
+}
 	&__coin{
     display: inline-block;
 		width: 32px;
@@ -64,15 +64,14 @@
 }
 .drop {
   position: absolute;
-  width: 16px;
-  height: 20px;
+  width: 20px;
+  height: 24px;
   background: url('../../assets/img/kaplya.png') no-repeat center/contain;
   image-rendering: pixelated;
   animation: fall 2s linear forwards;
   pointer-events: none;
   z-index: 2;
 }
-
 @keyframes fall {
   0% {
     opacity: 1;

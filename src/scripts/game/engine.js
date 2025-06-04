@@ -4,6 +4,15 @@ import { isColliding } from './utils.js';
 import { spawnCoin } from './coin.js';
 import { spawnRaindrop, handleLifeLoss} from './rain.js';
 
+function formatCoins(number) {
+  if (number >= 1_000_000) {
+    return (number / 1_000_000).toFixed(1).replace('.', ',') + 'M';
+  }
+  if (number >= 1_000) {
+    return (number / 1_000).toFixed(1).replace('.', ',') + 'k';
+  }
+  return number.toString();
+}
 export function updateGame() {
   if (!state.running) return;
   
@@ -44,7 +53,7 @@ export function updateGame() {
 
   if (isColliding(player, coin)) {
     state.coins++;
-    coinEl.textContent = state.coins;
+    coinEl.textContent = formatCoins(state.coins);
     coin.style.display = "none";
     clearTimeout(coin.despawnTimer);
     setTimeout(spawnCoin, 2000);

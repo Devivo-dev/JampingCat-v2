@@ -1,3 +1,16 @@
+.game-frame__home{
+  width: 100%;
+  max-width: 480px;
+  min-width: 320px;
+
+  height: 100vh; 
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#ffab87, #8bacdb);
+  background-size: cover;
+  image-rendering: pixelated;
+}
 .link-button{
   background: url("../../assets/img/joystick.png") no-repeat center;
 }
@@ -12,7 +25,6 @@
   background: url("../../assets/img/home.png") no-repeat center;
 }
 .link-button,
-.link-home,
 .link-info,
 .link-home,
 .link-shop{
@@ -21,7 +33,10 @@
   align-items: center;
   justify-content: flex-end;
 
-  width: clamp(60px, 15vw, 100px);
+  top: 5%;
+
+
+  width: clamp(60px, 20vw, 100px);
   aspect-ratio: 100 / 81;
   background-size: contain;
   background-repeat: no-repeat;
@@ -29,10 +44,14 @@
   image-rendering: pixelated;
   position: relative;
 
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
   z-index: 2;
 }
 .link-button-menu{
-  width: clamp(80px, 20vw, 128px);
+  width: clamp(110px, 20vw, 128px);
   aspect-ratio: 128 / 51;
   background: url("../../assets/img/btn-back.png") no-repeat center;
   background-size: contain;
@@ -47,12 +66,20 @@
   text-align: center;
 }
 .main__window{
-		width: 100%;
-		height: calc(100vh - 180px);
-		position: relative;
-		overflow: hidden;
-		background: linear-gradient(#ffab87, #8bacdb);
+		// width: 100%;
+		// height: calc(100vh - 180px);
+		// position: relative;
+		// overflow: hidden;
+		// background: linear-gradient(#ffab87, #8bacdb);
+    
+    width: 100%;
+    max-width: 480px;
+    min-width: 320px;
 
+    height: 100vh; 
+    margin: 0 auto;
+
+    position: relative;
     &--title{
       text-align: center;
       padding-top: 5vh;
@@ -64,32 +91,30 @@
     padding-top: 10vh;
     color: getColor('col-b');
     text-shadow: 2px 2px 0 getColor('col-w');
-
-
     }
 }
 .choose__box{
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  gap: clamp(1rem, 5vw, 3rem);
-  padding: 0;
-  &::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 250px;
-    background-image: url("../../assets/img/HomeGrass.png");
-    background-repeat: repeat-x;
-    background-position: top left;
-    background-size: auto 100%;
-    image-rendering: pixelated;
-    position: absolute;
-    top: -130%;
-    left: 0;
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+	width: 100%;
+	aspect-ratio: 8 / 4;
+	height: auto;
+  background-image: url("../../assets/img/HomeGrass.png");
+  background-repeat: repeat-x;
+  background-position: top left;
+  background-size: auto 100%;
+  image-rendering: pixelated; 
+	background-size: contain;
+	image-rendering: pixelated;
 
-    z-index: 1;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 5vw, 3rem);
+  
+  z-index: 1;
 }
 .whiskas__collected {
   text-align: center;
@@ -119,17 +144,15 @@
 }
 
 .playercat{
-  display: block;
-  width: 100%;
-  max-width: 250px;  
-  aspect-ratio: 1 / 1;  
+  position: absolute;
+  bottom: 26%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(100px, 50%, 200px);
+  aspect-ratio: 1 / 1;
   background: url("../../assets/skins/CatMenu.png") no-repeat center;
   background-size: contain;
   image-rendering: pixelated;
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 3;
 }
 .link-text{

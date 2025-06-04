@@ -3,8 +3,8 @@ import { state } from './state.js';
 
 export function moveLeft() {
   if (!state.running) return;
-  state.velocityY = -10;
-  state.velocityX = -3;
+  state.velocityY = -8;
+  state.velocityX = -1;
   state.score++;
   document.querySelector(".control__button--left").classList.add("active");
   setTimeout(() => {
@@ -15,8 +15,8 @@ export function moveLeft() {
 
 export function moveRight() {
   if (!state.running) return;
-  state.velocityY = -10;
-  state.velocityX = 3;
+  state.velocityY = -8;
+  state.velocityX = 1;
   state.score++;
   document.querySelector(".control__button--right").classList.add("active");
   setTimeout(() => {
