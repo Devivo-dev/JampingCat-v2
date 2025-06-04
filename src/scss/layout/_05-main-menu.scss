@@ -93,7 +93,7 @@
 }
 .whiskas__collected {
   text-align: center;
-  padding: 1% 0 2%;
+  padding: 10% 0 2%;
   color: getColor('col-b');
   text-shadow: 2px 2px 0 getColor('col-w');
   font-size: clamp(1.5rem, 2.5vw, 3rem);
@@ -106,12 +106,12 @@
   }
 
   &--amount {
-    font-size: 1em;
+    font-size: clamp(3rem, 50%, 5rem);
     font-weight: 500;
   }
 
   &--coin {
-    width: 1.5em;
+    width: 2.5em;
     aspect-ratio: 1 / 1;
     background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
     image-rendering: pixelated;
