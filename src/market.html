@@ -20,7 +20,24 @@
 						<span class='whiskas__collected--amount shop__borderShop--amount' id="whiskas-amount">0</span>
 					</div>
 			</div>
-			<div class="shop__playercat"></div>
+
+			<div class="cat-slider"> 
+				<button class="slider-btn left" onclick="prevCat()"></button>
+
+				<div class="cat-display">
+					<div id="cat-image" class="shop__playercat shop__playercat--black"></div>
+
+					<div class='lock--container'>
+						<div id="lock-icon" class="lock-overlay"></div>
+						<p class="cat-price" id="cat-price"></p>
+						<button id="buy-btn" onclick="buySkin()" class="buy-btn">Buy</button>
+					</div>
+
+				</div>
+
+				<button class="slider-btn right" onclick="nextCat()"></button>
+			</div>
+
 			<div class="shop__choose--box">
 						<div class="link-button" onclick="window.location.href='./game.html'">
 								<!-- <span class='link-text'>PLAY</span> -->
@@ -40,5 +57,6 @@
 	</footer> -->
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script type="module"  src='./main.js'></script>
+	<script type="module"  src='./scripts/shop/catPrice.js'></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ import { getWhiskas } from './whiskas.js';
 import { initGame } from './scripts/game/game.js';
 
 const tg = window.Telegram.WebApp;
-const tg_id = tg.initDataUnsafe?.user?.id?.toString() || 'guest-' + Date.now();
+const tg_id = tg.initDataUnsafe?.user?.id?.toString() || '123456789';
 
 
 window.addEventListener('DOMContentLoaded', () => {

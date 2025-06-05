@@ -67,16 +67,31 @@
 		}
 	}
 	&__playercat{
-  position: absolute;
-  bottom: 26%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(100px, 50%, 200px);
-  aspect-ratio: 1 / 1;
+		bottom: -50%;
+		left: 50%;
+  &--black {
   background: url("../../assets/skins/CatMenu.png") no-repeat center;
+	position: absolute;
+  transform: translateX(-50%);
+  width: clamp(120px, 40vw, 200px); 
+  aspect-ratio: 2 / 3;  
   background-size: contain;
   image-rendering: pixelated;
-  z-index: 3;
+  z-index: 2;
+  }
+
+  &--blueCollar {
+    background: url('../../assets/skins/homeBlueCollar.png') no-repeat center;
+		
+		position: absolute;
+		transform: translateX(-50%);
+  	width: clamp(120px, 40vw, 200px); 
+  	aspect-ratio: 2 / 3;  
+		background-size: contain;
+		image-rendering: pixelated;
+		z-index: 2;
+  }
+
 	}
 	&__choose--box{
   position: absolute;
@@ -99,4 +114,98 @@
   
   z-index: 5;
 	}
+}
+.left{
+  background: url("../../assets/img/shopArrow.png") no-repeat center/cover;
+}
+.left, .right{
+	display: inline-block;
+  width: clamp(40px, 15vw, 80px);
+  aspect-ratio: 2 / 3; 
+  image-rendering: pixelated;
+	border: none;
+}
+.right{
+  background: url("../../assets/img/shopArrow.png") no-repeat center/cover;
+	transform: scale(-1);
+}
+.cat-slider{
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+  text-align: center;
+
+	margin-top: 20vh;
+
+	padding: 0 3%;
+}
+.lock-overlay {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -110%); // трохи вище від початку .lock--container
+
+  width: clamp(50px, 10vw, 60px);
+  aspect-ratio: 1 / 1.15;
+  background: url("../../assets/img/lock.png") no-repeat center/cover;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+
+  z-index: 4;
+}
+
+.buy-btn{
+  position: absolute;
+  top: 135%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 10px;
+}
+.cat-price{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  font-size: clamp(2.4rem, 2vw, 4rem);
+  color: getColor('col-w');
+  text-shadow: 1px 1px 0 getColor('col-b');
+  font-family: 'Silkscreen', sans-serif;
+	&::after{
+		content: '';
+			display: block;
+			width: 30%;
+			aspect-ratio: 1 / 1;
+			background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
+			image-rendering: pixelated;
+
+			top: 50%;
+			left: 120%;
+			transform: translate(-50%, -50%);
+			position: absolute;
+			z-index: 3;
+	}
+
+}
+.lock--container {
+
+  z-index: 6;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 10px;
+
+}
+.cat-display{
+	position: relative; // Батько для абсолютних елементів
+  width: 100%;
+  height: auto;
 }
