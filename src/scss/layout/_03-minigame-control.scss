@@ -16,6 +16,9 @@
 		background-position: top left;
 		background-size: auto 100%;
 		image-rendering: pixelated;
+		  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; 
 		position: absolute;
 		top: -10px;
 	}
@@ -44,6 +47,9 @@
 		width: 102px;
 		height: 57px;
 		image-rendering: pixelated;
+		  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; 
 		border: none;
 		&.active, &.active{
 			width: 102px;
@@ -66,5 +72,8 @@
 		height: clamp(30px, 10vw, 30px);
 		background: url("../../assets/img/ball-of-thread.png") no-repeat center/cover;
 		image-rendering: pixelated;
+		  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; 
 	}
 }

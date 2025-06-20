@@ -1,4 +1,5 @@
 import './scss/main.scss';
+import './scripts/cat_skins/select_skins.js';
 import { getWhiskas } from './whiskas.js';
 import { initGame } from './scripts/game/game.js';
 
