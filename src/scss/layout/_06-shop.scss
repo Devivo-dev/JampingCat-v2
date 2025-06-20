@@ -19,9 +19,6 @@
   background: url("../../assets/img/shopBG.png") no-repeat center;
   background-size: cover;
   image-rendering: pixelated;
-	  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 }
 .shop {
   &__window {
@@ -39,9 +36,6 @@
 
     background: url("../../assets/img/shopBordPrice.png") no-repeat center/cover;
     image-rendering: pixelated;
-		  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 		top: 5%;
 		left: 50%;
 		transform: translateX(-50%);
@@ -64,9 +58,6 @@
 			aspect-ratio: 1 / 1;
 			background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
 			image-rendering: pixelated;
-			  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 
 			top: 60%;
 			left: 50%;
@@ -86,9 +77,6 @@
   aspect-ratio: 2 / 3;  
   background-size: contain;
   image-rendering: pixelated;
-	  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
   z-index: 2;
   }
 
@@ -101,9 +89,6 @@
   	aspect-ratio: 2 / 3;  
 		background-size: contain;
 		image-rendering: pixelated;
-		  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 		z-index: 2;
   }
 
@@ -121,9 +106,6 @@
 	background: url("../../assets/img/borderChoose.png") no-repeat center;
 	background-size: contain;
 	image-rendering: pixelated;
-	  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 
   display: flex;
   justify-content: center;
@@ -141,9 +123,6 @@
   width: clamp(40px, 15vw, 80px);
   aspect-ratio: 2 / 3; 
   image-rendering: pixelated;
-	  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 	border: none;
 }
 .right{
@@ -173,9 +152,6 @@
   background-position: center;
   background-repeat: no-repeat;
   image-rendering: pixelated;
-	  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 
   z-index: 4;
 }
@@ -192,27 +168,24 @@
 }
 .cat-price{
   position: absolute;
-  top: 50%;
-  left: 45%;
+  top: 35%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 4;
-  font-size: clamp(2rem, 2vw, 2rem);
+  font-size: clamp(2.4rem, 2vw, 4rem);
   color: getColor('col-w');
   text-shadow: 1px 1px 0 getColor('col-b');
   font-family: 'Silkscreen', sans-serif;
 	&::after{
 		content: '';
 			display: block;
-			width: 40%;
+			width: 30%;
 			aspect-ratio: 1 / 1;
 			background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
 			image-rendering: pixelated;
-			  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 
 			top: 50%;
-			left: 135%;
+			left: 120%;
 			transform: translate(-50%, -50%);
 			position: absolute;
 			z-index: 3;

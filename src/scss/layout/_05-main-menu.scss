@@ -10,9 +10,6 @@
   background: linear-gradient(#ffab87, #8bacdb);
   background-size: cover;
   image-rendering: pixelated;
-    image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 }
 .link-button{
   background: url("../../assets/img/joystick.png") no-repeat center;
@@ -59,16 +56,10 @@
   background: url("../../assets/img/btn-back.png") no-repeat center;
   background-size: contain;
   image-rendering: pixelated;
-    image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
   &.active {
     background: url("../../assets/img/btn-back-active.png") no-repeat center;
     background-size: contain; 
     image-rendering: pixelated;
-      image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
   } 
 }
 .header__title{
@@ -117,9 +108,6 @@
   image-rendering: pixelated; 
 	background-size: contain;
 	image-rendering: pixelated;
-    image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
 
   display: flex;
   justify-content: center;
@@ -152,9 +140,6 @@
     aspect-ratio: 1 / 1;
     background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
     image-rendering: pixelated;
-      image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
   }
 }
 
@@ -168,9 +153,6 @@
   background: url("../../assets/skins/CatMenu.png") no-repeat center;
   background-size: contain;
   image-rendering: pixelated;
-    image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
   z-index: 3;
 }
 .link-text{
@@ -178,17 +160,5 @@
   font-size: clamp(1.5rem, 2vw, 2rem);
   color: getColor('col-w');
   text-shadow: 1px 1px 0 getColor('col-b');
-  text-align: center;
-}
-.cat-skins, .closeSkin{
-  width: 100px;
-  height: 100px;
-  background-color: #fff;
-  border-radius: 10px;
-  position: absolute;
-  top: 10%;
-  left: 75%;
-
-  color: #212121;
   text-align: center;
 }

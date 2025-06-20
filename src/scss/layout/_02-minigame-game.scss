@@ -28,7 +28,6 @@
 		background: url("../../assets/img/cloudBordered.png") no-repeat center/contain;
 		background-size: contain;
 		image-rendering: pixelated;
-		  image-rendering: pixelated;
 		z-index: 3;
 		pointer-events: none;
 
@@ -37,7 +36,6 @@
 &__player {
   background: url("../../assets/skins/simplePlayer.png") no-repeat center/contain;
   image-rendering: pixelated;
-	  image-rendering: crisp-edges;
   position: absolute;
 
   width: clamp(70px, 15vw, 100px);      
@@ -48,9 +46,8 @@
     display: inline-block;
 		width: 32px;
 		height: 32px;
-    background: url("../../assets/img/coin-v2.png") no-repeat center/cover;
+    background: url("../../assets/img/whiskas.png") no-repeat center/cover;
     image-rendering: pixelated;
-		  -ms-interpolation-mode: nearest-neighbor; 
 
 		position: absolute;
 		display: none;
@@ -71,9 +68,6 @@
   height: 24px;
   background: url('../../assets/img/kaplya.png') no-repeat center/contain;
   image-rendering: pixelated;
-	  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor; 
   animation: fall 2s linear forwards;
   pointer-events: none;
   z-index: 2;
